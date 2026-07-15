@@ -10,6 +10,17 @@ Most todo apps are either too bare (a text list with no structure) or too heavy 
 
 ---
 
+## Scope
+
+This is a **frontend-only web app**. There is no backend/API in this repo:
+
+- No API routes (`src/app/api/**`)
+- No database or ORM in this project
+- All todo data comes from an **external API** (owned/hosted elsewhere) — this app only calls it
+- Server Actions that talk to a local database are **not applicable** here
+
+---
+
 ## Users
 
 | Persona | Needs |
@@ -94,9 +105,9 @@ Deleted todos (`deletedAt` set) are filtered out of normal list views rather tha
 ### In progress / Not started
 
 - shadcn/ui setup
-- Todo data layer (storage/persistence — not yet decided)
+- Client for the external todos API (base URL/auth TBD)
 - Todo list UI (view, create, complete, edit, delete)
-- Soft-delete handling
+- Soft-delete handling (as reflected by the external API's `deletedAt`)
 
 ---
 

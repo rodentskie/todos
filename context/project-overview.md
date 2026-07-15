@@ -101,10 +101,10 @@ Deleted todos (`deletedAt` set) are filtered out of normal list views rather tha
 ### Completed
 
 - Next.js project scaffolded (App Router, TypeScript, Tailwind v4)
+- shadcn/ui setup (`base-nova` style, `neutral` base color, `lucide` icons; `button` and `card` components installed)
 
 ### In progress / Not started
 
-- shadcn/ui setup
 - Client for the external todos API (base URL/auth TBD)
 - Todo list UI (view, create, complete, edit, delete)
 - Soft-delete handling (as reflected by the external API's `deletedAt`)
@@ -113,4 +113,4 @@ Deleted todos (`deletedAt` set) are filtered out of normal list views rather tha
 
 ## Status
 
-- 🚧 Early scaffold — no todo functionality implemented yet
+- 🚧 Early scaffold — shadcn/ui installed, no todo functionality implemented yet

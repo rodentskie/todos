@@ -6,7 +6,7 @@ A Next.js app for displaying and managing todos.
 
 - Next.js 16 (App Router), React 19, TypeScript
 - Tailwind CSS v4
-- UI components: shadcn/ui (not yet installed — add via `npx shadcn@latest init` before first use)
+- UI components: shadcn/ui (installed; style `base-nova`, base color `neutral`, icons via `lucide`)
 
 ## Commands
 
@@ -36,7 +36,8 @@ A todo item:
 ## Structure
 
 - `src/app/` — App Router pages and layout (`@/*` resolves to `src/*`)
-- Currently a fresh scaffold: no components, data layer, or API routes exist yet.
+- `src/components/ui/` — shadcn/ui components (`button`, `card` installed so far)
+- No data layer or API routes exist yet.
 
 
 ## Context Files

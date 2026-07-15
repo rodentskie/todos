@@ -7,3 +7,14 @@ export interface Todo {
   updatedAt: string;
   deletedAt: string | null;
 }
+
+export interface CreateTodoInput {
+  title: string;
+  description?: string;
+}
+
+export interface UpdateTodoInput {
+  title?: string;
+  description?: string;
+  completed?: boolean;
+}

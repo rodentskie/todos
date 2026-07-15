@@ -1,4 +1,6 @@
-import { CheckCircle2, Circle } from "lucide-react";
+"use client";
+
+import { CheckCircle2, Circle, Pencil, Trash2 } from "lucide-react";
 
 import {
   Card,
@@ -8,15 +10,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import type { Todo } from "@/types/todo";
 
 function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString("en-US");
 }
 
-export function TodoCard({ todo }: { todo: Todo }) {
+interface TodoCardProps {
+  todo: Todo;
+  onToggle: (todo: Todo) => void;
+  onEdit: (todo: Todo) => void;
+  onDelete: (todo: Todo) => void;
+}
+
+export function TodoCard({ todo, onToggle, onEdit, onDelete }: TodoCardProps) {
   return (
-    <Card>
+    <Card className="group">
       <CardHeader>
         <CardTitle
           className={todo.completed ? "text-muted-foreground line-through" : undefined}
@@ -24,16 +34,42 @@ export function TodoCard({ todo }: { todo: Todo }) {
           {todo.title}
         </CardTitle>
         <CardAction>
-          {todo.completed ? (
-            <CheckCircle2 className="size-5 text-muted-foreground" />
-          ) : (
-            <Circle className="size-5 text-muted-foreground" />
-          )}
+          <button
+            type="button"
+            onClick={() => onToggle(todo)}
+            aria-label={todo.completed ? "Mark as incomplete" : "Mark as complete"}
+          >
+            {todo.completed ? (
+              <CheckCircle2 className="size-5 text-muted-foreground" />
+            ) : (
+              <Circle className="size-5 text-muted-foreground" />
+            )}
+          </button>
         </CardAction>
       </CardHeader>
       <CardContent className="space-y-2">
         {todo.description && <CardDescription>{todo.description}</CardDescription>}
-        <p className="text-xs text-muted-foreground">{formatDate(todo.createdAt)}</p>
+        <div className="flex items-center justify-between">
+          <p className="text-xs text-muted-foreground">{formatDate(todo.createdAt)}</p>
+          <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              aria-label="Edit task"
+              onClick={() => onEdit(todo)}
+            >
+              <Pencil className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              aria-label="Delete task"
+              onClick={() => onDelete(todo)}
+            >
+              <Trash2 className="size-4 text-destructive" />
+            </Button>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );

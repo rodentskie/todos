@@ -37,3 +37,15 @@ A todo item:
 
 - `src/app/` — App Router pages and layout (`@/*` resolves to `src/*`)
 - Currently a fresh scaffold: no components, data layer, or API routes exist yet.
+
+
+## Context Files
+
+Read the following to get the full context of the project:
+
+- @context/project-overview.md
+- @context/ai-interaction.md
+- @context/current-feature.md
+- @context/coding-standards.md
+
+---
